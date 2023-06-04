@@ -3,7 +3,15 @@ import React from "react";
 import { colors, hr80 } from "../globals/style";
 import logo from "../../assets/Food-Delivery-Scooter-PNG-Transparent.png";
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
+  const goToSignup = () => {
+    navigation.navigate("signup");
+  };
+
+  const goToLogin = () => {
+    navigation.navigate("login");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Hungry Hub </Text>
@@ -23,11 +31,11 @@ const Welcome = () => {
       <View
         style={[styles.btnout, { flexDirection: "row", alignItems: "center" }]}
       >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={goToSignup}>
           <Text style={styles.btn}>Sign up</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={goToLogin}>
           <Text style={styles.btn}>Log In</Text>
         </TouchableOpacity>
       </View>

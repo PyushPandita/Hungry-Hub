@@ -12,12 +12,16 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const goToSign = () => {
+    navigation.navigate("signup");
+  };
 
   return (
     <View style={styles.container}>
@@ -106,7 +110,9 @@ const LoginScreen = () => {
 
       <Text>
         Don't have an account?
-        <Text style={styles.signup}> Sign Up</Text>
+        <Text style={styles.signup} onPress={goToSign}>
+          Sign Up
+        </Text>
       </Text>
     </View>
   );
@@ -167,7 +173,7 @@ const styles = StyleSheet.create({
   gfIcon: {
     width: 50,
     backgroundColor: "#fff",
-    elevation: 10,
+    elevation: 20,
     alignItems: "center",
     padding: 10,
     borderRadius: 10,
@@ -176,6 +182,7 @@ const styles = StyleSheet.create({
 
   signup: {
     color: colors.text1,
+    fontWeight: "bold",
   },
 });
 
