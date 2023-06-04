@@ -66,10 +66,6 @@ const LoginScreen = () => {
           name={showPassword === false ? "eye-off" : "eye"}
           size={24}
           color="black"
-          onFocus={() => {
-            setPasswordFocus(true);
-            setEmailFocus(false);
-          }}
           onPress={() => {
             setShowPassword(!showPassword);
           }}
